@@ -1,0 +1,77 @@
+@import '@styles/variables.less';
+@import '@styles/mixins.less';
+
+@input-prefix: ~'@{prefix}-input';
+
+.@{input-prefix} {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid @border-base;
+  border-radius: @border-radius-md;
+  background: @bg-page;
+  transition: all 0.2s ease;
+
+  &:hover:not(&--disabled) {
+    border-color: @color-primary;
+  }
+
+  &:focus-within:not(&--disabled) {
+    border-color: @color-primary;
+    box-shadow: 0 0 0 2px fade(@jay-pink-base, 15%);
+  }
+
+  &--small {
+    height: 28px;
+    padding: 0 @spacing-sm;
+    font-size: @font-size-sm;
+  }
+
+  &--medium {
+    height: 36px;
+    padding: 0 @spacing-md;
+    font-size: @font-size-md;
+  }
+
+  &--large {
+    height: 44px;
+    padding: 0 @spacing-lg;
+    font-size: @font-size-lg;
+  }
+
+  &--disabled {
+    .disabled();
+    background: @bg-weak;
+  }
+
+  &__field {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: @text-primary;
+
+    &::placeholder {
+      color: @text-placeholder;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: @text-disabled;
+    }
+  }
+
+  &__affix {
+    .flex-center();
+    color: @text-secondary;
+
+    &--prefix {
+      margin-right: @spacing-xs;
+    }
+
+    &--suffix {
+      margin-left: @spacing-xs;
+    }
+  }
+}

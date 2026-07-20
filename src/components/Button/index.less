@@ -1,0 +1,88 @@
+@import '@styles/variables.less';
+@import '@styles/mixins.less';
+
+@btn-prefix: ~'@{prefix}-btn';
+
+.@{btn-prefix} {
+  .flex-center();
+  gap: @spacing-xs;
+  border: 1px solid transparent;
+  border-radius: @border-radius-md;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px fade(@jay-pink-base, 20%);
+  }
+
+  &--small {
+    height: 28px;
+    padding: 0 @spacing-sm;
+    font-size: @font-size-sm;
+  }
+
+  &--medium {
+    height: 36px;
+    padding: 0 @spacing-lg;
+    font-size: @font-size-md;
+  }
+
+  &--large {
+    height: 44px;
+    padding: 0 @spacing-xl;
+    font-size: @font-size-lg;
+  }
+
+  &--primary {
+    background: @color-primary;
+    border-color: @color-primary;
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background: @color-primary-hover;
+      border-color: @color-primary-hover;
+    }
+  }
+
+  &--default {
+    background: @bg-card;
+    border-color: @border-base;
+    color: @text-primary;
+
+    &:hover:not(:disabled) {
+      border-color: @color-primary;
+    }
+  }
+
+  &--text {
+    background: transparent;
+    border-color: transparent;
+    color: @color-primary;
+
+    &:hover:not(:disabled) {
+      background: @color-primary-bg;
+    }
+  }
+
+  &--disabled {
+    .disabled();
+    color: @text-disabled;
+  }
+
+  &__loading {
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: jerry-btn-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes jerry-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

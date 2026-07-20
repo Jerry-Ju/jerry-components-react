@@ -1,0 +1,36 @@
+---
+description: TypeScript 类型规范
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+alwaysApply: false
+---
+
+# TypeScript 规范
+
+## 类型分层
+
+- 全局公共类型 → `src/types/`
+- 组件私有类型 → `src/components/[Name]/types.ts`
+
+## 导入规范
+
+- 类型使用 `import type` 导入
+- 禁止 `any`，必要时用 `unknown` 并收窄
+- 组件 Props 使用 `interface`，联合类型用 `type`
+
+## Props 约定
+
+```typescript
+import type { BaseComponentProps } from '@types';
+
+export interface ButtonProps extends BaseComponentProps {
+  /** 按钮类型 */
+  variant?: Variant;
+}
+```
+
+## 导出
+
+- 组件类型与组件同目录导出
+- 公共类型从 `src/types/index.ts` 统一 re-export

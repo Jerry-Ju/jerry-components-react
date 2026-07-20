@@ -1,0 +1,62 @@
+---
+description: Less 样式规范
+globs:
+  - "**/*.less"
+alwaysApply: false
+---
+
+# Less 样式规范
+
+## 文件职责
+
+| 文件 | 用途 |
+| --- | --- |
+| `src/styles/variables.less` | 中性色 CSS 变量、品牌粉色、尺寸、圆角 |
+| `src/styles/mixins.less` | 通用混合器 |
+| `src/styles/global.less` | 全局重置 |
+| `src/components/*/index.less` | 组件私有样式 |
+
+## 写法
+
+```less
+@import '@styles/variables.less';
+@import '@styles/mixins.less';
+
+@btn-prefix: ~'@{prefix}-btn';
+
+.@{btn-prefix} {
+  .flex-center();
+  color: @text-primary;
+  background: @bg-card;
+  border: 1px solid @border-base;
+}
+```
+
+## 颜色使用规则
+
+### 中性色（文字 / 背景 / 边框）
+
+- 正文、标题：`@text-primary`
+- 描述、辅助：`@text-secondary`
+- 占位符：`@text-placeholder`
+- 页面底色：`@bg-page`
+- 卡片底色：`@bg-card`
+- 边框 / 分割线：`@border-base`
+
+### 品牌粉（仅强调 / 交互）
+
+- 主按钮、高亮、激活态：`@color-primary`
+- hover / 按下：`@color-primary-hover`
+- 淡粉背景（标签、text 按钮 hover）：`@color-primary-bg`
+- 固定粉色阶梯（渐变、focus 环等）：`@jay-pink-base`、`@jay-pink-1` ~ `@jay-pink-8`
+
+**禁止**将粉色用于正文文字或页面底色。粉按钮内文字固定 `#fff`。
+
+`fade()` 等 Less 颜色函数不能作用于 CSS 变量别名，半透明效果请用静态 `@jay-pink-base` 或 `@jay-pink-2`。
+
+## 其他规则
+
+- 组件样式禁止写全局选择器（`body`、`html` 等）
+- 颜色、间距优先使用变量，禁止硬编码 magic number
+- 使用 BEM + `@prefix` 前缀，避免样式污染
+- 动画名使用静态字符串（如 `jerry-btn-spin`），避免 `@{var}-name` 插值

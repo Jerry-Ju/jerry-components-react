@@ -1,0 +1,27 @@
+@import './variables.less';
+
+.flex-center() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.disabled() {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}

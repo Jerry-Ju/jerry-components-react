@@ -1,0 +1,39 @@
+---
+description: Git 提交与文件命名规范
+alwaysApply: true
+---
+
+# Git 与命名规范
+
+## 提交信息
+
+使用 Conventional Commits：
+
+- `feat:` 新功能（新组件、新 API）
+- `fix:` 修复 bug
+- `docs:` 文档变更
+- `style:` 样式调整（不影响逻辑）
+- `refactor:` 重构
+- `chore:` 构建/工具链变更
+
+示例：`feat: add Input component`
+
+## 文件命名
+
+| 类型 | 规范 | 示例 |
+| --- | --- | --- |
+| 组件目录 | PascalCase | `Button/` |
+| 组件文件 | 小写固定名 | `index.tsx`, `types.ts` |
+| Hook | camelCase + use 前缀 | `useClickOutside.ts` |
+| 工具函数 | camelCase | `dom.ts` |
+| 文档 | kebab-case 或语义名 | `install.md`, `basic.tsx` |
+
+## 分支
+
+- `main` — 稳定分支
+- `feat/xxx` — 功能分支
+- `fix/xxx` — 修复分支
+
+## 忽略
+
+`dist/`、`docs-dist/`、`node_modules/` 不提交。

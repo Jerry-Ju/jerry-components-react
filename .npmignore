@@ -1,0 +1,12 @@
+src
+docs
+scripts
+.cursor
+.dumirc.ts
+.fatherrc.ts
+.eslintrc.js
+.prettierrc
+tsconfig.json
+docs-dist
+*.md
+!README.md

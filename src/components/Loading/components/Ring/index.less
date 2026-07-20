@@ -1,0 +1,35 @@
+@import '@styles/variables.less';
+
+@ring-prefix: ~'@{prefix}-loading-ring';
+
+.@{ring-prefix} {
+  --jerry-loading-ring-size: 40px;
+  --jerry-loading-ring-color: @color-primary;
+  --jerry-loading-ring-track: @jay-pink-2;
+  --jerry-loading-ring-speed: 1s;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--jerry-loading-ring-size);
+  height: var(--jerry-loading-ring-size);
+
+  &__svg {
+    display: block;
+    animation: jerry-loading-ring-spin var(--jerry-loading-ring-speed) linear infinite;
+  }
+
+  &__track {
+    stroke: var(--jerry-loading-ring-track);
+  }
+
+  &__arc {
+    stroke: var(--jerry-loading-ring-color);
+  }
+}
+
+@keyframes jerry-loading-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,14 @@
+node_modules
+dist
+docs-dist
+.dumi
+.pnpm-store
+.DS_Store
+*.log
+.env
+.env.*
+.idea
+.vscode
+*.tsbuildinfo
+coverage
+.turbo

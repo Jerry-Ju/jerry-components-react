@@ -1,0 +1,58 @@
+---
+description: React 组件开发规范
+globs:
+  - src/components/**/*.tsx
+  - src/components/**/*.ts
+  - src/components/**/*.less
+alwaysApply: false
+---
+
+# 组件开发规范
+
+## 目录结构
+
+每个组件独立文件夹，必须包含：
+
+- `index.tsx` — 组件实现
+- `index.less` — 组件私有样式
+- `types.ts` — 组件类型定义
+- `README.md` — Dumi 组件文档
+- `demo/` — 示例（`.tsx` 文件）
+
+## 命名
+
+- 组件文件夹：PascalCase（如 `Button`）
+- 类名前缀：统一 `jerry-`（变量 `@prefix: jerry`）
+- BEM：`jerry-btn`、`jerry-btn--primary`、`jerry-btn__icon`
+
+## 组件模板
+
+```tsx
+import React from 'react';
+import { classNames } from '@utils';
+import type { FooProps } from './types';
+import './index.less';
+
+const prefixCls = 'jerry-foo';
+
+export const Foo: React.FC<FooProps> = ({ className, ...rest }) => {
+  return <div className={classNames(prefixCls, className)} {...rest} />;
+};
+
+Foo.displayName = 'Foo';
+export default Foo;
+```
+
+## 规则
+
+- 使用函数组件 + `displayName`
+- Props 继承 `BaseComponentProps`，类型放 `types.ts`
+- 样式仅写组件私有部分，变量从 `@styles/variables.less` 引入
+- **主题色必须遵循中性色 / 品牌粉分离**（详见 `.cursor/rules/less.mdc`）：
+  - 文字、背景、边框 → `@text-*`、`@bg-*`、`@border-*`
+  - 主按钮、高亮、激活态 → `@color-primary` / `@color-primary-hover` / `@color-primary-bg`
+  - 禁止硬编码 `#fff` 以外的颜色值（粉按钮内文字 `#fff` 除外）
+  - 禁止粉色用于正文或页面底色
+- 组件默认强调色（如 Loading `color`）使用 `JayPink.base`，勿硬编码 hex
+- 公共模块使用路径别名：`@types`、`@utils`、`@hooks`、`@styles`
+- 新增组件后在 `src/components/index.ts` 导出

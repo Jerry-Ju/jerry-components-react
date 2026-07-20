@@ -1,0 +1,52 @@
+---
+description: Dumi 文档编写规范
+globs:
+  - docs/**/*
+  - src/components/**/README.md
+  - src/components/**/demo/**
+alwaysApply: false
+---
+
+# Dumi 文档规范
+
+## 文档位置
+
+- 组件文档 → `src/components/[Name]/README.md`
+- 组件 Demo → `src/components/[Name]/demo/*.tsx`
+- 独立指南 → `docs/guide/*.md`
+- 站点首页 → `docs/index.md`
+
+## 组件 README 模板
+
+```markdown
+# Button 按钮
+
+组件简介。
+
+## 代码演示
+
+<code src="./demo/basic.tsx"></code>
+
+## API
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| variant | 按钮类型 | Variant | primary |
+```
+
+## Demo 规范
+
+- Demo 使用 `.tsx`，默认 export 一个 React 组件
+- 从 `jerry-components-react` 导入组件（Dumi alias 已配置）
+- 每个 Demo 聚焦单一场景（`basic.tsx`、`disabled.tsx`）
+- 文档内不可执行代码块加 `| pure` 标记：`tsx | pure`
+
+## 多 type 组件
+
+- API 按 type 分节：`### type="xxx"`，每节独立表格
+- 公共属性（`type`、`className`、`style`）单独一节，其下紧跟 `### type 概览`
+- 禁止用「生效 type」列合并所有 Props
+
+## Frontmatter
+
+独立文档页顶部添加 `title` 和 `order` 字段。

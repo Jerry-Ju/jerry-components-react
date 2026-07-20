@@ -1,0 +1,61 @@
+{
+  "name": "jerry-components-react",
+  "version": "0.1.0",
+  "description": "React 18 + TypeScript component library with Dumi 2 and Less",
+  "license": "MIT",
+  "sideEffects": [
+    "**/*.less",
+    "dist/**/*.css"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "dumi dev",
+    "build": "father build && tsx scripts/copy-style.ts",
+    "scaffold:component": "tsx scripts/scaffold-component.ts",
+    "build:docs": "dumi build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings 0",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,less,md,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,less,md,json}\"",
+    "prepare": "husky install || true"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "babel-plugin-module-resolver": "^5.0.3",
+    "dumi": "^2.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "father": "^4.5.2",
+    "husky": "^9.1.7",
+    "less": "^4.2.1",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{less,md,json}": [
+      "prettier --write"
+    ]
+  }
+}
