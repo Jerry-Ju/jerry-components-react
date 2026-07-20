@@ -45,13 +45,19 @@
 <code src="./demo/ecg-color.tsx"></code>
 <code src="./demo/ecg-size.tsx"></code>
 
+### spinner
+
+<code src="./demo/spinner-basic.tsx"></code>
+<code src="./demo/spinner-colors.tsx"></code>
+<code src="./demo/spinner-size.tsx"></code>
+
 ## API
 
 ### 公共属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring' \| 'bounce' \| 'ecg'` | `'cradle'` |
+| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring' \| 'bounce' \| 'ecg' \| 'spinner'` | `'cradle'` |
 | className | 自定义类名 | `string` | — |
 | style | 自定义样式 | `CSSProperties` | — |
 
@@ -65,6 +71,7 @@
 | `ring` | 圆环旋转加载，见 [ring API](#typering) |
 | `bounce` | 跳动圆点加载，见 [bounce API](#typebounce) |
 | `ecg` | 心电图滚动加载，见 [ecg API](#typeecg) |
+| `spinner` | 放射条旋转加载，见 [spinner API](#typespinner) |
 
 ### type="cradle"
 
@@ -136,5 +143,16 @@
 | strokeWidth | 线条粗细（viewBox 单位） | `number` | `4` |
 
 用法：`<Loading type="ecg" width="100%" height={84} strokeWidth={6} />`
+
+### type="spinner"
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| speed | 旋转周期（秒） | `number` | `1.2` |
+| color | 单色模式颜色 | `string` | 主题粉 |
+| colors | 多色渐变（≥2 启用） | `string[]` | — |
+| size | 直径（px） | `number` | `80` |
+
+用法：`<Loading type="spinner" colors={['#FFA6C9', '#1677ff']} size={100} />`
 
 各类型实现位于 `components/` 子目录。

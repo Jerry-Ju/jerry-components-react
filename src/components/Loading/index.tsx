@@ -4,12 +4,14 @@ import { CradleLoading } from './components/Cradle';
 import { CubeLoading } from './components/Cube';
 import { EcgLoading } from './components/Ecg';
 import { RingLoading } from './components/Ring';
+import { SpinnerLoading } from './components/Spinner';
 import { ThreeBodyLoading } from './components/ThreeBody';
 import type { BounceLoadingProps } from './components/Bounce/types';
 import type { CradleLoadingProps } from './components/Cradle/types';
 import type { CubeLoadingProps } from './components/Cube/types';
 import type { EcgLoadingProps } from './components/Ecg/types';
 import type { RingLoadingProps } from './components/Ring/types';
+import type { SpinnerLoadingProps } from './components/Spinner/types';
 import type { ThreeBodyLoadingProps } from './components/ThreeBody/types';
 import type { LoadingProps } from './types';
 
@@ -29,6 +31,8 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return <BounceLoading {...(rest as BounceLoadingProps)} />;
     case 'ecg':
       return <EcgLoading {...(rest as EcgLoadingProps)} />;
+    case 'spinner':
+      return <SpinnerLoading {...(rest as SpinnerLoadingProps)} />;
     default:
       return null;
   }
