@@ -1,11 +1,11 @@
 # CardLightBorder 流光边框卡片
 
-通用卡片包裹型容器，hover 时边框产生顺时针流光环绕高亮动效，纯 CSS 实现，零 JS 动画计算。
+通用卡片包裹型容器，边框流光动效纯 CSS 实现，支持 hover / 常驻、顺逆时针、双色渐变与聚焦/选中态。
 
 ## 何时使用
 
 - 后台功能模块卡片、数据卡片 hover 视觉增强
-- 重点内容区域需要高颜值边框动效
+- 重点卡片常驻流光、列表选中高亮
 - 任意原有卡片内容可直接包裹，无侵入
 
 ## 代码演示
@@ -17,6 +17,26 @@
 ### 关闭动效
 
 <code src="./demo/inactive.tsx"></code>
+
+### 常驻流光
+
+<code src="./demo/always.tsx"></code>
+
+### 旋转方向
+
+<code src="./demo/direction.tsx"></code>
+
+### 颜色数组
+
+<code src="./demo/dual-color.tsx"></code>
+
+### 聚焦与选中
+
+<code src="./demo/state.tsx"></code>
+
+### 组合能力
+
+<code src="./demo/combined.tsx"></code>
 
 ### 速度档位
 
@@ -34,30 +54,51 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| active | 是否开启 hover 流光动效 | `boolean` | `true` |
+| trigger | 触发模式：`hover` 移入播放 / `always` 常驻 / `none` 关闭 | `'hover' \| 'always' \| 'none'` | `'hover'` |
+| direction | 旋转方向 | `'clockwise' \| 'counterclockwise'` | `'clockwise'` |
+| state | 边框状态（配合 `fixedAngle` 固定亮带角度） | `'default' \| 'focus' \| 'selected'` | `'default'` |
 | speed | 动画速度档位 | `'slow' \| 'default' \| 'fast'` | `'default'` |
-| color | 流光高亮色，不传则跟随主题 `--color-primary` | `string` | — |
+| colors | 流光颜色数组，长度 1 为单色，≥ 2 为渐变色（可彩虹色） | `string[]` | 主题 `--color-primary` |
+| fixedAngle | 固定亮带角度（0~360），配合 `state` 停止旋转 | `number` | — |
 | borderWidth | 流光边框粗细（px） | `number` | `2` |
-| radius | 卡片圆角，数字视为 px | `number \| string` | `8` |
+| radius | 卡片圆角 | `number \| string` | `8` |
+| cardBorder | 卡片基础边框颜色 | `string` | `@border-base` |
 | className | 自定义类名 | `string` | — |
 | style | 自定义样式 | `CSSProperties` | — |
 | children | 卡片内容 | `ReactNode` | — |
 
+### colors 说明
+
+- `colors={['#FFA6C9']}` — 单色流光
+- `colors={['#FFA6C9', '#F27FB0']}` — 两色沿弧带平滑过渡
+- `colors={['#FF6B6B', '#FCBF51', '#6BCB77', '#4D96FF']}` — 多色/彩虹渐变
+
+### 行为说明
+
+1. `trigger='hover'` → 仅 hover / focus-within 时显示流光，移出暂停
+2. `trigger='always'` → 流光常驻旋转
+3. `trigger='none'` → 关闭流光（替代原 `active={false}`）
+4. `state='focus'` → 设置 `tabIndex={0}`，配合 `trigger='hover'` 可键盘聚焦触发
+5. `fixedAngle` + `state='selected' \| 'focus'` → 在对应 trigger 生效时固定亮带角度、停止旋转
+
 ## 用法示例
 
 ```tsx | pure
-<CardLightBorder speed="fast" borderWidth={2} radius={12}>
-  <div className="jerry-card-light-border__content" style={{ aspectRatio: '16 / 9' }}>
-    封面区域
-  </div>
-  <div style={{ padding: '8px 6px 0', marginTop: 8 }}>标题与操作区</div>
+<CardLightBorder
+  trigger="always"
+  direction="counterclockwise"
+  colors={['#FFA6C9', '#FCBF51', '#F27FB0']}
+  state="selected"
+  fixedAngle={90}
+>
+  <div className="jerry-card-light-border__content">封面</div>
+  <div>底部信息</div>
 </CardLightBorder>
 ```
 
 ## 实现说明
 
-- 外层容器即卡片根节点：`padding` 预留流光环带，`::before` 锥形渐变旋转，`overflow: hidden` 裁切
-- 子元素直接挂载在外层内（无额外包裹层），通过 `> *` 提升层级；需实色背景的区块可使用 `jerry-card-light-border__content`
-- `data-border-active="true"` 且 hover 时开启动画，移出暂停
-- 伪元素 `pointer-events: none`，不影响内部按钮、输入等交互
-- CSS 变量：`--jerry-clb-content-radius` 供内容区圆角（外层 radius − borderWidth）
+- 外层 `padding` 环带 + `background` 作为基础 border（`cardBorder` / `@border-base`）；`::before` 以 mask 限定在同宽环带，高亮段叠加、透明段露出底层 border 色
+- `data-border-trigger` 控制播放时机，仅触发态显示流光
+- `@property --jerry-clb-angle` 驱动渐变旋转，GPU 友好
+- `jerry-card-light-border__content` 用于封面等实色区块

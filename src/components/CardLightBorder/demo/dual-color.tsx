@@ -17,27 +17,35 @@ const footerStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
 };
 
+const RAINBOW_COLORS = ['#FF6B6B', '#FCBF51', '#FFE066', '#6BCB77', '#4D96FF', '#9B59B6'];
+
 export default () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
-    <CardLightBorder colors={[JayPink.base]} borderWidth={2} radius={8} style={{ width: 220 }}>
+    <CardLightBorder trigger="always" colors={[JayPink.base]} style={{ width: 260 }} radius={12} borderWidth={2}>
       <div className="jerry-card-light-border__content" style={mediaStyle}>
-        默认圆角
+        单色
       </div>
       <div style={footerStyle}>colors={[JayPink.base]}</div>
     </CardLightBorder>
 
-    <CardLightBorder colors={[JayPink.base, JayPink.p6]} borderWidth={3} radius={16} style={{ width: 220 }}>
+    <CardLightBorder
+      trigger="always"
+      colors={['#FF6B6B', '#FCBF51']}
+      style={{ width: 260 }}
+      radius={12}
+      borderWidth={2}
+    >
       <div className="jerry-card-light-border__content" style={mediaStyle}>
-        大圆角
+        双色
       </div>
-      <div style={footerStyle}>双色渐变，borderWidth=3</div>
+      <div style={footerStyle}>colors 长度 ≥ 2，弧带内平滑过渡</div>
     </CardLightBorder>
 
-    <CardLightBorder colors={[JayPink.p4, JayPink.p5, JayPink.p6]} borderWidth={2} radius={9999} style={{ width: 220 }}>
+    <CardLightBorder trigger="always" colors={RAINBOW_COLORS} style={{ width: 260 }} radius={12} borderWidth={2}>
       <div className="jerry-card-light-border__content" style={mediaStyle}>
-        胶囊圆角
+        彩虹色
       </div>
-      <div style={footerStyle}>三色渐变</div>
+      <div style={footerStyle}>多色数组组合渐变</div>
     </CardLightBorder>
   </div>
 );

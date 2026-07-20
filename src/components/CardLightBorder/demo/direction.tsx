@@ -19,18 +19,18 @@ const footerStyle: React.CSSProperties = {
 
 export default () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
-    <CardLightBorder style={{ width: 280 }} radius={12} borderWidth={2}>
+    <CardLightBorder trigger="always" direction="clockwise" style={{ width: 240 }} radius={12} borderWidth={2}>
       <div className="jerry-card-light-border__content" style={mediaStyle}>
-        默认开启
+        顺时针
       </div>
-      <div style={footerStyle}>hover 触发流光</div>
+      <div style={footerStyle}>direction=clockwise</div>
     </CardLightBorder>
 
-    <CardLightBorder trigger="none" style={{ width: 280 }} radius={12} borderWidth={2}>
+    <CardLightBorder trigger="always" direction="counterclockwise" style={{ width: 240 }} radius={12} borderWidth={2}>
       <div className="jerry-card-light-border__content" style={mediaStyle}>
-        trigger=none
+        逆时针
       </div>
-      <div style={footerStyle}>hover 无光效</div>
+      <div style={footerStyle}>direction=counterclockwise</div>
     </CardLightBorder>
   </div>
 );

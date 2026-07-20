@@ -14,8 +14,8 @@
   box-sizing: border-box;
   padding: var(--jerry-clb-border-width, 2px);
   border-radius: var(--jerry-clb-radius, 8px);
+  background: var(--jerry-clb-card-border, @border-base);
   overflow: hidden;
-  background: @bg-weak;
   color: @text-primary;
   isolation: isolate;
 
@@ -26,35 +26,59 @@
     z-index: 0;
     pointer-events: none;
     border-radius: inherit;
+    --jerry-clb-angle: 0deg;
+    padding: var(--jerry-clb-border-width, 2px);
     background: conic-gradient(
       from var(--jerry-clb-angle, 0deg),
-      transparent 0deg 210deg,
-      var(--jerry-clb-color, @color-primary) 250deg,
-      var(--jerry-clb-color, @color-primary) 310deg,
-      transparent 350deg 360deg
+      var(
+        --jerry-clb-stops,
+        transparent 0deg 210deg,
+        @color-primary 250deg,
+        @color-primary 310deg,
+        transparent 350deg 360deg
+      )
     );
-    --jerry-clb-angle: 0deg;
-    animation: jerry-card-light-border-spin var(--jerry-clb-duration, 3s) linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    animation-duration: var(--jerry-clb-duration, 3s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     animation-play-state: paused;
+    opacity: 0;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: var(--jerry-clb-border-width, 2px);
-    z-index: 0;
-    pointer-events: none;
-    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, 8px) - var(--jerry-clb-border-width, 2px)));
-    background: @bg-weak;
+  &[data-border-direction='clockwise']::before {
+    animation-name: jerry-card-light-border-spin-cw;
   }
 
-  &[data-border-active='true']:hover::before {
-    animation-play-state: running;
+  &[data-border-direction='counterclockwise']::before {
+    animation-name: jerry-card-light-border-spin-ccw;
   }
 
   > * {
     position: relative;
     z-index: 1;
+  }
+
+  &[data-border-trigger='hover']:hover::before,
+  &[data-border-trigger='hover']:focus-within::before {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  &[data-border-trigger='always']::before {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  &[data-border-fixed='true'][data-border-trigger='hover']:hover::before,
+  &[data-border-fixed='true'][data-border-trigger='hover']:focus-within::before,
+  &[data-border-fixed='true'][data-border-trigger='always']::before {
+    opacity: 1;
+    animation-play-state: paused;
+    --jerry-clb-angle: var(--jerry-clb-fixed-angle, 0deg);
   }
 
   &__content {
@@ -64,8 +88,14 @@
   }
 }
 
-@keyframes jerry-card-light-border-spin {
+@keyframes jerry-card-light-border-spin-cw {
   to {
     --jerry-clb-angle: 360deg;
+  }
+}
+
+@keyframes jerry-card-light-border-spin-ccw {
+  to {
+    --jerry-clb-angle: -360deg;
   }
 }
