@@ -39,13 +39,19 @@
 <code src="./demo/bounce-dots.tsx"></code>
 <code src="./demo/bounce-custom.tsx"></code>
 
+### ecg
+
+<code src="./demo/ecg-basic.tsx"></code>
+<code src="./demo/ecg-color.tsx"></code>
+<code src="./demo/ecg-size.tsx"></code>
+
 ## API
 
 ### 公共属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring' \| 'bounce'` | `'cradle'` |
+| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring' \| 'bounce' \| 'ecg'` | `'cradle'` |
 | className | 自定义类名 | `string` | — |
 | style | 自定义样式 | `CSSProperties` | — |
 
@@ -58,6 +64,7 @@
 | `threeBody` | 三圆点轨道旋转，见 [threeBody API](#typethreebody) |
 | `ring` | 圆环旋转加载，见 [ring API](#typering) |
 | `bounce` | 跳动圆点加载，见 [bounce API](#typebounce) |
+| `ecg` | 心电图滚动加载，见 [ecg API](#typeecg) |
 
 ### type="cradle"
 
@@ -117,5 +124,17 @@
 | speed | 跳动周期（秒） | `number` | `0.5` |
 
 用法：`<Loading type="bounce" dots={4} size={16} gap={12} />`
+
+### type="ecg"
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| color | 线条颜色 | `string` | 主题粉 |
+| width | 容器宽度 | `number \| string` | `220`（px） |
+| height | 容器高度 | `number \| string` | `84`（px） |
+| speed | 扫描周期（秒） | `number` | `5` |
+| strokeWidth | 线条粗细（viewBox 单位） | `number` | `4` |
+
+用法：`<Loading type="ecg" width="100%" height={84} strokeWidth={6} />`
 
 各类型实现位于 `components/` 子目录。

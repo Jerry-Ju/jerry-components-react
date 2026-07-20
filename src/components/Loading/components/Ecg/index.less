@@ -1,0 +1,41 @@
+@import '@styles/variables.less';
+
+@ecg-prefix: ~'@{prefix}-loading-ecg';
+
+.@{ecg-prefix} {
+  --jerry-loading-ecg-width: 220px;
+  --jerry-loading-ecg-height: 84px;
+  --jerry-loading-ecg-color: @color-primary;
+  --jerry-loading-ecg-dasharray: 814;
+  --jerry-loading-ecg-speed: 5s;
+  --jerry-loading-ecg-stroke-width: 4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--jerry-loading-ecg-width);
+  height: var(--jerry-loading-ecg-height);
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__path {
+    stroke: var(--jerry-loading-ecg-color);
+    stroke-width: var(--jerry-loading-ecg-stroke-width);
+    stroke-dasharray: var(--jerry-loading-ecg-dasharray);
+    animation: jerry-loading-ecg-draw var(--jerry-loading-ecg-speed) infinite linear;
+  }
+}
+
+@keyframes jerry-loading-ecg-draw {
+  from {
+    stroke-dashoffset: var(--jerry-loading-ecg-dasharray);
+  }
+
+  to {
+    stroke-dashoffset: calc(var(--jerry-loading-ecg-dasharray) * -1px);
+  }
+}

@@ -12,3 +12,6 @@ export type { RingLoadingProps } from './Ring/types';
 
 export { BounceLoading } from './Bounce';
 export type { BounceLoadingProps } from './Bounce/types';
+
+export { EcgLoading } from './Ecg';
+export type { EcgLoadingProps } from './Ecg/types';
