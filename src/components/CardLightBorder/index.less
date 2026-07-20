@@ -23,7 +23,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
     border-radius: inherit;
     --jerry-clb-angle: 0deg;
@@ -57,9 +57,11 @@
     animation-name: jerry-card-light-border-spin-ccw;
   }
 
-  > * {
+  &__body {
     position: relative;
-    z-index: 1;
+    z-index: 0;
+    isolation: isolate;
+    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, 8px) - var(--jerry-clb-border-width, 2px)));
   }
 
   &[data-border-trigger='hover']:hover::before,

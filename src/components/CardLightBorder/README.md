@@ -99,6 +99,7 @@
 ## 实现说明
 
 - 外层 `padding` 环带 + `background` 作为基础 border（`cardBorder` / `@border-base`）；`::before` 以 mask 限定在同宽环带，高亮段叠加、透明段露出底层 border 色
+- 内容经 `__body` 包裹，与流光环带分层；内容区可自由设置 z-index，不会遮挡高亮 border
 - `data-border-trigger` 控制播放时机，仅触发态显示流光
 - `@property --jerry-clb-angle` 驱动渐变旋转，GPU 友好
 - `jerry-card-light-border__content` 用于封面等实色区块

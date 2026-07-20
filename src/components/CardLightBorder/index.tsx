@@ -62,7 +62,7 @@ export const CardLightBorder: React.FC<CardLightBorderProps> = ({
       data-border-fixed={isFixed ? 'true' : 'false'}
       tabIndex={state === 'focus' ? 0 : undefined}
     >
-      {children}
+      <div className={`${prefixCls}__body`}>{children}</div>
     </div>
   );
 };
