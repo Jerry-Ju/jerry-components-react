@@ -1,0 +1,84 @@
+@import '@styles/variables.less';
+@import './components/Element/index.less';
+
+@skeleton-prefix: ~'@{prefix}-skeleton';
+
+.@{skeleton-prefix} {
+  display: block;
+  width: 100%;
+
+  &__item {
+    display: flex;
+    gap: var(--jerry-skeleton-gap-item, @spacing-md);
+    align-items: flex-start;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--jerry-skeleton-gap-content, @spacing-sm);
+  }
+
+  &__paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jerry-skeleton-gap-paragraph, @spacing-sm);
+  }
+
+  &__title {
+    margin-bottom: var(--jerry-skeleton-gap-title, @spacing-xs);
+  }
+
+  &__list-item + &__list-item {
+    margin-top: var(--jerry-skeleton-gap-list, @spacing-lg);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jerry-skeleton-gap-section, @spacing-md);
+    max-width: var(--jerry-skeleton-card-max-width, 320px);
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jerry-skeleton-gap-section, @spacing-md);
+    max-width: var(--jerry-skeleton-detail-max-width, 480px);
+  }
+
+  &--small {
+    --jerry-skeleton-gap-item: @spacing-sm;
+    --jerry-skeleton-gap-content: @spacing-xs;
+    --jerry-skeleton-gap-paragraph: @spacing-xs;
+    --jerry-skeleton-gap-title: 2px;
+    --jerry-skeleton-gap-list: @spacing-md;
+    --jerry-skeleton-gap-section: @spacing-sm;
+    --jerry-skeleton-card-max-width: 260px;
+    --jerry-skeleton-detail-max-width: 360px;
+  }
+
+  &--medium {
+    --jerry-skeleton-gap-item: @spacing-md;
+    --jerry-skeleton-gap-content: @spacing-sm;
+    --jerry-skeleton-gap-paragraph: @spacing-sm;
+    --jerry-skeleton-gap-title: @spacing-xs;
+    --jerry-skeleton-gap-list: @spacing-lg;
+    --jerry-skeleton-gap-section: @spacing-md;
+    --jerry-skeleton-card-max-width: 320px;
+    --jerry-skeleton-detail-max-width: 480px;
+  }
+
+  &--large {
+    --jerry-skeleton-gap-item: @spacing-lg;
+    --jerry-skeleton-gap-content: @spacing-md;
+    --jerry-skeleton-gap-paragraph: @spacing-md;
+    --jerry-skeleton-gap-title: @spacing-sm;
+    --jerry-skeleton-gap-list: @spacing-xl;
+    --jerry-skeleton-gap-section: @spacing-lg;
+    --jerry-skeleton-card-max-width: 400px;
+    --jerry-skeleton-detail-max-width: 560px;
+  }
+}

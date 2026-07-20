@@ -6,3 +6,14 @@ export type { InputProps } from './Input/types';
 
 export { Loading } from './Loading';
 export type { LoadingProps, LoadingType } from './Loading/types';
+
+export { Skeleton } from './Skeleton';
+export type {
+  SkeletonAvatarProps,
+  SkeletonBlockProps,
+  SkeletonParagraphProps,
+  SkeletonProps,
+  SkeletonShape,
+  SkeletonTemplate,
+  SkeletonTitleProps,
+} from './Skeleton/types';

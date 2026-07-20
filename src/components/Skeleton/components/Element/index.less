@@ -1,0 +1,41 @@
+@import '@styles/variables.less';
+
+@skeleton-prefix: ~'@{prefix}-skeleton';
+
+.@{skeleton-prefix} {
+  &__element {
+    display: block;
+    background: var(--jerry-skeleton-base);
+    border-radius: @border-radius-sm;
+
+    &--circle {
+      border-radius: 50%;
+    }
+
+    &--round {
+      border-radius: @border-radius-lg;
+    }
+
+    // active 时启用横向 shimmer，由 Context 注入的 active 控制
+    &--active {
+      background: linear-gradient(
+        90deg,
+        var(--jerry-skeleton-base) 25%,
+        var(--jerry-skeleton-highlight) 37%,
+        var(--jerry-skeleton-base) 63%
+      );
+      background-size: 400% 100%;
+      animation: jerry-skeleton-shimmer 1.4s ease infinite;
+    }
+  }
+}
+
+@keyframes jerry-skeleton-shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
