@@ -7,16 +7,33 @@ alwaysApply: true
 
 ## 提交信息
 
-使用 Conventional Commits：
+使用 Conventional Commits 前缀 + **中文描述**，描述须**简洁**，一句话说清改动目的。
 
-- `feat:` 新功能（新组件、新 API）
-- `fix:` 修复 bug
-- `docs:` 文档变更
-- `style:` 样式调整（不影响逻辑）
-- `refactor:` 重构
-- `chore:` 构建/工具链变更
+格式：`<type>: <中文描述>`
 
-示例：`feat: add Input component`
+| 类型 | 用途 |
+| --- | --- |
+| `feat:` | 新功能（新组件、新 API） |
+| `fix:` | 修复 bug |
+| `docs:` | 文档变更 |
+| `style:` | 样式调整（不影响逻辑） |
+| `refactor:` | 重构 |
+| `chore:` | 构建 / 工具链变更 |
+
+**要求**
+
+- 描述使用中文，不用英文句子
+- 控制在 50 字以内，避免冗长
+- 写「为什么 / 做了什么」，不写实现细节清单
+- 禁止空泛描述（如 `更新代码`、`修改文件`）
+
+**示例**
+
+- `feat: 新增 Ring 圆环 Loading`
+- `fix: 修复 cradle dots=5 时圆点变形`
+- `docs: 补充 README 推送规范`
+- `refactor: 拆分主题中性色与品牌色`
+- `chore: 升级 dumi 依赖`
 
 ## 文件命名
 
@@ -36,4 +53,4 @@ alwaysApply: true
 
 ## 忽略
 
-`dist/`、`docs-dist/`、`node_modules/` 不提交。
+`dist/`、`docs-dist/`、`node_modules/`、`.dumi/` 不提交。
