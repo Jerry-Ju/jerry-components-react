@@ -1,8 +1,10 @@
 import React from 'react';
+import { BounceLoading } from './components/Bounce';
 import { CradleLoading } from './components/Cradle';
 import { CubeLoading } from './components/Cube';
 import { RingLoading } from './components/Ring';
 import { ThreeBodyLoading } from './components/ThreeBody';
+import type { BounceLoadingProps } from './components/Bounce/types';
 import type { CradleLoadingProps } from './components/Cradle/types';
 import type { CubeLoadingProps } from './components/Cube/types';
 import type { RingLoadingProps } from './components/Ring/types';
@@ -21,6 +23,8 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return <ThreeBodyLoading {...(rest as ThreeBodyLoadingProps)} />;
     case 'ring':
       return <RingLoading {...(rest as RingLoadingProps)} />;
+    case 'bounce':
+      return <BounceLoading {...(rest as BounceLoadingProps)} />;
     default:
       return null;
   }

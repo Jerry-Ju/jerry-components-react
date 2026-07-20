@@ -9,3 +9,6 @@ export type { ThreeBodyLoadingProps } from './ThreeBody/types';
 
 export { RingLoading } from './Ring';
 export type { RingLoadingProps } from './Ring/types';
+
+export { BounceLoading } from './Bounce';
+export type { BounceLoadingProps } from './Bounce/types';

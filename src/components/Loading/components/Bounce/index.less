@@ -1,0 +1,90 @@
+@import '@styles/variables.less';
+
+@bounce-prefix: ~'@{prefix}-loading-bounce';
+
+.@{bounce-prefix} {
+  --jerry-loading-bounce-size: 20px;
+  --jerry-loading-bounce-gap: 20px;
+  --jerry-loading-bounce-color: @color-primary;
+  --jerry-loading-bounce-shadow: fade(@jay-pink-base, 25%);
+  --jerry-loading-bounce-speed: 0.5s;
+  --jerry-loading-bounce-height: 60px;
+  --jerry-loading-bounce-delay: 0s;
+
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--jerry-loading-bounce-gap);
+  height: var(--jerry-loading-bounce-height);
+
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    width: var(--jerry-loading-bounce-size);
+    height: var(--jerry-loading-bounce-height);
+  }
+
+  &__dot {
+    position: absolute;
+    left: 0;
+    width: var(--jerry-loading-bounce-size);
+    background-color: var(--jerry-loading-bounce-color);
+    transform-origin: 50% 100%;
+    animation: jerry-loading-bounce-dot var(--jerry-loading-bounce-speed) alternate infinite ease;
+    animation-delay: var(--jerry-loading-bounce-delay);
+  }
+
+  &__shadow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: var(--jerry-loading-bounce-size);
+    height: calc(var(--jerry-loading-bounce-size) * 0.2);
+    border-radius: 50%;
+    background-color: var(--jerry-loading-bounce-shadow);
+    transform-origin: 50%;
+    filter: blur(1px);
+    animation: jerry-loading-bounce-shadow var(--jerry-loading-bounce-speed) alternate infinite
+      ease;
+    animation-delay: var(--jerry-loading-bounce-delay);
+  }
+}
+
+@keyframes jerry-loading-bounce-dot {
+  0% {
+    top: calc(var(--jerry-loading-bounce-height) - var(--jerry-loading-bounce-size) * 0.25);
+    height: calc(var(--jerry-loading-bounce-size) * 0.25);
+    border-radius: 50% 50% 40% 40%;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    top: calc(var(--jerry-loading-bounce-height) - var(--jerry-loading-bounce-size));
+    height: var(--jerry-loading-bounce-size);
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0;
+    height: var(--jerry-loading-bounce-size);
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes jerry-loading-bounce-shadow {
+  0% {
+    transform: scaleX(1.5);
+    opacity: 1;
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}

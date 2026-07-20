@@ -33,13 +33,19 @@
 <code src="./demo/ring-color.tsx"></code>
 <code src="./demo/ring-size.tsx"></code>
 
+### bounce
+
+<code src="./demo/bounce-basic.tsx"></code>
+<code src="./demo/bounce-dots.tsx"></code>
+<code src="./demo/bounce-custom.tsx"></code>
+
 ## API
 
 ### 公共属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring'` | `'cradle'` |
+| type | 加载动画类型 | `'cradle' \| 'cube' \| 'threeBody' \| 'ring' \| 'bounce'` | `'cradle'` |
 | className | 自定义类名 | `string` | — |
 | style | 自定义样式 | `CSSProperties` | — |
 
@@ -51,6 +57,7 @@
 | `cube` | 3D 立方体旋转，见 [cube API](#typecube) |
 | `threeBody` | 三圆点轨道旋转，见 [threeBody API](#typethreebody) |
 | `ring` | 圆环旋转加载，见 [ring API](#typering) |
+| `bounce` | 跳动圆点加载，见 [bounce API](#typebounce) |
 
 ### type="cradle"
 
@@ -98,5 +105,17 @@
 | speed | 旋转周期（秒） | `number` | `1` |
 
 用法：`<Loading type="ring" size={48} percent={25} />`
+
+### type="bounce"
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| dots | dot 数量（≥1） | `number` | `3` |
+| color | dot 颜色 | `string` | 主题粉 |
+| size | dot 直径（px） | `number` | `20` |
+| gap | dot 间距（px） | `number` | 同 `size` |
+| speed | 跳动周期（秒） | `number` | `0.5` |
+
+用法：`<Loading type="bounce" dots={4} size={16} gap={12} />`
 
 各类型实现位于 `components/` 子目录。
