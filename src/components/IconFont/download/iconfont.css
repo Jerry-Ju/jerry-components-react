@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 5213631 */
+  src: url('iconfont.woff2?t=1784556046965') format('woff2'),
+       url('iconfont.woff?t=1784556046965') format('woff'),
+       url('iconfont.ttf?t=1784556046965') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-line_chart_down:before {
+  content: "\e621";
+}
+
+.icon-trending_up:before {
+  content: "\e622";
+}
+
+.icon-bar_chart_horizontal:before {
+  content: "\e623";
+}
+
+.icon-bar_chart_alt_horizontal:before {
+  content: "\e624";
+}
+
+.icon-doughnut_chart:before {
+  content: "\e625";
+}
+
+.icon-negative-dynamics:before {
+  content: "\e626";
+}
+
+.icon-pie_chart_75:before {
+  content: "\e627";
+}
+
+.icon-curve_chart_down:before {
+  content: "\e628";
+}
+
+.icon-trending_down:before {
+  content: "\e629";
+}
+
+.icon-pie_chart_50:before {
+  content: "\e62a";
+}
+
+.icon-pie_chart_25:before {
+  content: "\e62b";
+}
+
+.icon-bar_chart:before {
+  content: "\e62c";
+}
+
+.icon-data:before {
+  content: "\e62d";
+}
+
+.icon-positive-dynamics:before {
+  content: "\e62e";
+}
+
+.icon-curve_chart_up:before {
+  content: "\e62f";
+}
+
+.icon-bar_chart_square:before {
+  content: "\e630";
+}
+
+.icon-form:before {
+  content: "\e631";
+}
+
+.icon-bar_chart_alt:before {
+  content: "\e632";
+}
+
+.icon-line_chart_up:before {
+  content: "\e633";
+}
+
+.icon-pie_chart_outline:before {
+  content: "\e634";
+}
+
+.icon-pie_chart_outline_acute:before {
+  content: "\e635";
+}
+
+.icon-pie_chart_outline_right:before {
+  content: "\e636";
+}
+
+.icon-pie_chart_outline_obtuse:before {
+  content: "\e637";
+}
+

@@ -1,0 +1,47 @@
+@import '@styles/variables.less';
+@import './download/iconfont.css';
+
+@iconfont-prefix: ~'@{prefix}-iconfont';
+
+.@{iconfont-prefix} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: -0.125em;
+  color: @text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .iconfont {
+    font-size: inherit;
+    color: inherit;
+  }
+
+  &--clickable {
+    cursor: pointer;
+  }
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &--flip-horizontal {
+    transform: scaleX(-1);
+  }
+
+  &--flip-vertical {
+    transform: scaleY(-1);
+  }
+
+  &--spin {
+    animation: jerry-iconfont-spin 1s linear infinite;
+  }
+}
+
+@keyframes jerry-iconfont-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

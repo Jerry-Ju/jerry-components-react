@@ -7,6 +7,9 @@ export type { InputProps } from './Input/types';
 export { Loading } from './Loading';
 export type { LoadingProps, LoadingType } from './Loading/types';
 
+export { IconFont } from './IconFont';
+export type { IconFontFlip, IconFontProps, IconFontType } from './IconFont/types';
+
 export { Skeleton } from './Skeleton';
 export type {
   SkeletonAvatarProps,

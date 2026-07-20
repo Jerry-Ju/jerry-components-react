@@ -1,0 +1,170 @@
+{
+  "id": "5213631",
+  "name": "jerry-components",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "41167910",
+      "name": " line_chart_down",
+      "font_class": "line_chart_down",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "41167911",
+      "name": " trending_up",
+      "font_class": "trending_up",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "41167912",
+      "name": " bar_chart_horizontal",
+      "font_class": "bar_chart_horizontal",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "41167915",
+      "name": " bar_chart_alt_horizontal",
+      "font_class": "bar_chart_alt_horizontal",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "41167916",
+      "name": " doughnut_chart",
+      "font_class": "doughnut_chart",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "41167919",
+      "name": " negative-dynamics",
+      "font_class": "negative-dynamics",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "41167922",
+      "name": " pie_chart_75",
+      "font_class": "pie_chart_75",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "41167923",
+      "name": " curve_chart_down",
+      "font_class": "curve_chart_down",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "41167925",
+      "name": " trending_down",
+      "font_class": "trending_down",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "41167926",
+      "name": " pie_chart_50",
+      "font_class": "pie_chart_50",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "41167927",
+      "name": " pie_chart_25",
+      "font_class": "pie_chart_25",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "41167928",
+      "name": " bar_chart",
+      "font_class": "bar_chart",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "41167930",
+      "name": " data",
+      "font_class": "data",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "41167931",
+      "name": " positive-dynamics",
+      "font_class": "positive-dynamics",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "41167932",
+      "name": " curve_chart_up",
+      "font_class": "curve_chart_up",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "41167933",
+      "name": " bar_chart_square",
+      "font_class": "bar_chart_square",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "41167934",
+      "name": " form",
+      "font_class": "form",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "41167936",
+      "name": " bar_chart_alt",
+      "font_class": "bar_chart_alt",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "41167937",
+      "name": " line_chart_up",
+      "font_class": "line_chart_up",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "41167939",
+      "name": " pie_chart_outline",
+      "font_class": "pie_chart_outline",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "41168632",
+      "name": "pie_chart_acute",
+      "font_class": "pie_chart_outline_acute",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "41168634",
+      "name": "pie_chart_right",
+      "font_class": "pie_chart_outline_right",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "41168648",
+      "name": "pie_chart_obtuse",
+      "font_class": "pie_chart_outline_obtuse",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    }
+  ]
+}
