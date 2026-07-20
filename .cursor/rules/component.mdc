@@ -48,6 +48,10 @@ export default Foo;
 - 使用函数组件 + `displayName`
 - Props 继承 `BaseComponentProps`，类型放 `types.ts`
 - 样式仅写组件私有部分，变量从 `@styles/variables.less` 引入
+- **Design Token 约束**（详见 `docs/guide/design-token.md`）：
+  - 间距 / 圆角 / 字体 / 阴影 / z-index 必须使用 `tokens.less` 变量
+  - 禁止写死 4 / 8 / 12 / 16 等 magic number
+  - 卡片默认圆角 `@radius-lg`，小控件 `@radius-sm`
 - **主题色必须遵循中性色 / 品牌粉分离**（详见 `.cursor/rules/less.mdc`）：
   - 文字、背景、边框 → `@text-*`、`@bg-*`、`@border-*`
   - 主按钮、高亮、激活态 → `@color-primary` / `@color-primary-hover` / `@color-primary-bg`

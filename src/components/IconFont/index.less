@@ -1,9 +1,11 @@
 @import '@styles/variables.less';
+@import '@styles/mixins.less';
 @import './download/iconfont.css';
 
 @iconfont-prefix: ~'@{prefix}-iconfont';
 
 .@{iconfont-prefix} {
+  .text-md();
   display: inline-flex;
   align-items: center;
   justify-content: center;

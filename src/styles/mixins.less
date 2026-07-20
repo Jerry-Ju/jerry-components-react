@@ -25,3 +25,48 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+.text-xs() {
+  font-size: @font-xs;
+  line-height: @line-height-xs;
+  font-weight: @font-weight-regular;
+}
+
+.text-sm() {
+  font-size: @font-sm;
+  line-height: @line-height-sm;
+  font-weight: @font-weight-regular;
+}
+
+.text-md() {
+  font-size: @font-md;
+  line-height: @line-height-md;
+  font-weight: @font-weight-regular;
+}
+
+.text-lg() {
+  font-size: @font-lg;
+  line-height: @line-height-lg;
+  font-weight: @font-weight-medium;
+}
+
+.text-xl() {
+  font-size: @font-xl;
+  line-height: @line-height-xl;
+  font-weight: @font-weight-semibold;
+}
+
+.text-xxl() {
+  font-size: @font-xxl;
+  line-height: @line-height-xxl;
+  font-weight: @font-weight-semibold;
+}
+
+.shadow-hover(@from: @shadow-sm, @to: @shadow-md) {
+  box-shadow: @from;
+  transition: box-shadow 0.2s ease;
+
+  &:hover:not(:disabled) {
+    box-shadow: @to;
+  }
+}

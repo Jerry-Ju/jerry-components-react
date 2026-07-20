@@ -1,7 +1,8 @@
 import { JayPink } from '@types';
 import type { CardLightBorderSpeed } from './types';
 
-export const DEFAULT_BORDER_WIDTH = 2;
+export const DEFAULT_BORDER_WIDTH = 2; // 对齐 @radius-xs
+/** 默认圆角，对齐 @radius-lg（8px） */
 export const DEFAULT_RADIUS = 8;
 export const DEFAULT_FIXED_ANGLE = 0;
 

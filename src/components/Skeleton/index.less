@@ -54,11 +54,11 @@
     vertical-align: middle;
 
     &--default {
-      border-radius: @border-radius-md;
+      border-radius: @radius-md;
     }
 
     &--square {
-      border-radius: @border-radius-sm;
+      border-radius: @radius-sm;
     }
 
     &--block {
@@ -70,7 +70,7 @@
   &__input {
     display: inline-block;
     vertical-align: middle;
-    border-radius: @border-radius-md;
+    border-radius: @radius-md;
 
     &--block {
       display: block;
@@ -121,14 +121,14 @@
     left: 50%;
     width: 28%;
     height: 28%;
-    border-radius: @border-radius-sm;
+    border-radius: @radius-sm;
     background: var(--jerry-skeleton-highlight);
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
   &--round {
     .@{skeleton-prefix}__element:not(.@{skeleton-prefix}__element--circle) {
-      border-radius: @border-radius-lg;
+      border-radius: @radius-lg;
     }
   }
 
@@ -136,7 +136,7 @@
     --jerry-skeleton-gap-item: @spacing-sm;
     --jerry-skeleton-gap-content: @spacing-xs;
     --jerry-skeleton-gap-paragraph: @spacing-xs;
-    --jerry-skeleton-gap-title: 2px;
+    --jerry-skeleton-gap-title: @radius-xs;
     --jerry-skeleton-gap-list: @spacing-md;
     --jerry-skeleton-gap-section: @spacing-sm;
     --jerry-skeleton-card-max-width: 260px;

@@ -12,8 +12,8 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  padding: var(--jerry-clb-border-width, 2px);
-  border-radius: var(--jerry-clb-radius, 8px);
+  padding: var(--jerry-clb-border-width, @radius-xs);
+  border-radius: var(--jerry-clb-radius, @radius-lg);
   background: var(--jerry-clb-card-border, @border-base);
   overflow: hidden;
   color: @text-primary;
@@ -23,21 +23,17 @@
     content: '';
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: @z-card-hover;
     pointer-events: none;
     border-radius: inherit;
     --jerry-clb-angle: 0deg;
-    padding: var(--jerry-clb-border-width, 2px);
-    background: conic-gradient(
-      from var(--jerry-clb-angle, 0deg),
-      var(
-        --jerry-clb-stops,
-        transparent 0deg 210deg,
-        @color-primary 250deg,
-        @color-primary 310deg,
-        transparent 350deg 360deg
-      )
-    );
+    padding: var(--jerry-clb-border-width, @radius-xs);
+    background: conic-gradient(from var(--jerry-clb-angle, 0deg),
+        var(--jerry-clb-stops,
+          transparent 0deg 210deg,
+          @color-primary 250deg,
+          @color-primary 310deg,
+          transparent 350deg 360deg));
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -62,8 +58,9 @@
     z-index: 0;
     isolation: isolate;
     overflow: hidden;
+    padding: @padding-card;
     background: var(--jerry-clb-background, @bg-card);
-    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, 8px) - var(--jerry-clb-border-width, 2px)));
+    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, @radius-lg) - var(--jerry-clb-border-width, @radius-xs)));
   }
 
   &[data-border-trigger='hover']:hover::before,
@@ -87,7 +84,7 @@
 
   &__content {
     overflow: hidden;
-    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, 8px) - var(--jerry-clb-border-width, 2px)));
+    border-radius: var(--jerry-clb-content-radius, calc(var(--jerry-clb-radius, @radius-lg) - var(--jerry-clb-border-width, @radius-xs)));
   }
 }
 

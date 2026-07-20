@@ -109,8 +109,9 @@ function renderLess(kebabName: string): string {
 
 .@{${kebabName}-prefix} {
   .flex-center();
+  .text-md();
   color: @text-primary;
-  font-size: @font-size-md;
+  border-radius: @radius-md;
 
   &--disabled {
     .disabled();

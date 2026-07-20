@@ -11,10 +11,13 @@ alwaysApply: false
 
 | 文件 | 用途 |
 | --- | --- |
-| `src/styles/variables.less` | 中性色 CSS 变量、品牌粉色、尺寸、圆角 |
-| `src/styles/mixins.less` | 通用混合器 |
+| `src/styles/tokens.less` | 间距、圆角、字体、阴影、z-index 等尺寸 token |
+| `src/styles/variables.less` | 中性色 CSS 变量、品牌粉色（import tokens.less） |
+| `src/styles/mixins.less` | 通用混合器（`.text-md()`、`.shadow-hover()` 等） |
 | `src/styles/global.less` | 全局重置 |
 | `src/components/*/index.less` | 组件私有样式 |
+
+完整规范见 `docs/guide/design-token.md`。
 
 ## 写法
 
@@ -26,9 +29,11 @@ alwaysApply: false
 
 .@{btn-prefix} {
   .flex-center();
+  .text-md();
   color: @text-primary;
   background: @bg-card;
   border: 1px solid @border-base;
+  border-radius: @radius-sm;
 }
 ```
 
@@ -41,6 +46,8 @@ alwaysApply: false
 - 占位符：`@text-placeholder`
 - 页面底色：`@bg-page`
 - 卡片底色：`@bg-card`
+- 次要背景：`@bg-weak`
+- 悬浮背景：`@bg-hover`
 - 边框 / 分割线：`@border-base`
 
 ### 品牌粉（仅强调 / 交互）
@@ -54,9 +61,17 @@ alwaysApply: false
 
 `fade()` 等 Less 颜色函数不能作用于 CSS 变量别名，半透明效果请用静态 `@jay-pink-base` 或 `@jay-pink-2`。
 
+## 尺寸 Token 使用规则
+
+- 间距：`@spacing-xs` ~ `@spacing-xxl`（4px 栅格）
+- 圆角：小控件 `@radius-sm`，默认卡片 `@radius-lg`，弹窗 `@radius-xl`，胶囊 `@radius-round`
+- 字体：正文 `@font-md` + `@line-height-md`，或 mixin `.text-md()`
+- 阴影：静态 `@shadow-sm`，hover `@shadow-md` / `@shadow-lg`
+- 层级：内容 `@z-content`，流光 border `@z-card-hover`，下拉 `@z-dropdown`，Modal `@z-modal`
+
 ## 其他规则
 
 - 组件样式禁止写全局选择器（`body`、`html` 等）
-- 颜色、间距优先使用变量，禁止硬编码 magic number
+- **禁止写死** 4 / 8 / 12 / 16 等 magic number，必须引用 token
 - 使用 BEM + `@prefix` 前缀，避免样式污染
 - 动画名使用静态字符串（如 `jerry-btn-spin`），避免 `@{var}-name` 插值
