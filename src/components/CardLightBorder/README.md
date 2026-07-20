@@ -63,6 +63,7 @@
 | borderWidth | 流光边框粗细（px） | `number` | `2` |
 | radius | 卡片圆角 | `number \| string` | `8` |
 | cardBorder | 卡片基础边框颜色 | `string` | `@border-base` |
+| backgroundColor | 内容区背景色 | `string` | `@bg-card` |
 | className | 自定义类名 | `string` | — |
 | style | 自定义样式 | `CSSProperties` | — |
 | children | 卡片内容 | `ReactNode` | — |
@@ -100,6 +101,7 @@
 
 - 外层 `padding` 环带 + `background` 作为基础 border（`cardBorder` / `@border-base`）；`::before` 以 mask 限定在同宽环带，高亮段叠加、透明段露出底层 border 色
 - 内容经 `__body` 包裹，与流光环带分层；内容区可自由设置 z-index，不会遮挡高亮 border
+- 内容区背景由 `__body` 统一承载（默认 `@bg-card`），避免子块背景在圆角处溢出覆盖 border
 - `data-border-trigger` 控制播放时机，仅触发态显示流光
 - `@property --jerry-clb-angle` 驱动渐变旋转，GPU 友好
 - `jerry-card-light-border__content` 用于封面等实色区块

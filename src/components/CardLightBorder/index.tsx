@@ -30,6 +30,7 @@ export const CardLightBorder: React.FC<CardLightBorderProps> = ({
   borderWidth = DEFAULT_BORDER_WIDTH,
   radius = DEFAULT_RADIUS,
   cardBorder,
+  backgroundColor,
   className,
   style,
   children,
@@ -48,9 +49,10 @@ export const CardLightBorder: React.FC<CardLightBorderProps> = ({
       '--jerry-clb-duration': SPEED_DURATION[speed],
       '--jerry-clb-fixed-angle': `${fixedAngle ?? DEFAULT_FIXED_ANGLE}deg`,
       ...(cardBorder !== undefined ? { '--jerry-clb-card-border': cardBorder } : undefined),
+      ...(backgroundColor !== undefined ? { '--jerry-clb-background': backgroundColor } : undefined),
       ...(gradientStops ? { '--jerry-clb-stops': gradientStops } : undefined),
     };
-  }, [borderWidth, cardBorder, fixedAngle, gradientStops, radius, speed, style]);
+  }, [backgroundColor, borderWidth, cardBorder, fixedAngle, gradientStops, radius, speed, style]);
 
   return (
     <div

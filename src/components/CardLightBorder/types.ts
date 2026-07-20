@@ -36,6 +36,8 @@ export interface CardLightBorderProps extends BaseComponentProps {
   radius?: number | string;
   /** 基础边框环带颜色，不传默认 `@border-base` */
   cardBorder?: string;
+  /** 内容区背景色，不传默认 `@bg-card` */
+  backgroundColor?: string;
   children?: ReactNode;
 }
 
@@ -45,6 +47,7 @@ export type CardLightBorderStyle = CSSProperties & {
   '--jerry-clb-content-radius'?: string;
   '--jerry-clb-stops'?: string;
   '--jerry-clb-card-border'?: string;
+  '--jerry-clb-background'?: string;
   '--jerry-clb-duration'?: string;
   '--jerry-clb-fixed-angle'?: string;
 };
