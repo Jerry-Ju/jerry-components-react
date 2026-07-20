@@ -9,6 +9,12 @@
 
 ## 代码演示
 
+### 全部类型
+
+各 `type` 默认参数下的基础用法，一行展示多个，超出后换行。
+
+<code src="./demo/all-basic.tsx"></code>
+
 ### cradle
 
 <code src="./demo/basic.tsx"></code>
