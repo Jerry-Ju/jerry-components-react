@@ -3,6 +3,10 @@ import { classNames } from '@utils';
 import {
   SkeletonAvatar,
   SkeletonBlock,
+  SkeletonButton,
+  SkeletonImage,
+  SkeletonInput,
+  SkeletonNode,
   SkeletonParagraph,
   SkeletonTitle,
 } from './components';
@@ -27,6 +31,10 @@ const prefixCls = 'jerry-skeleton';
  */
 export const Skeleton: React.FC<SkeletonProps> & {
   Avatar: typeof SkeletonAvatar;
+  Button: typeof SkeletonButton;
+  Input: typeof SkeletonInput;
+  Image: typeof SkeletonImage;
+  Node: typeof SkeletonNode;
   Title: typeof SkeletonTitle;
   Paragraph: typeof SkeletonParagraph;
   Block: typeof SkeletonBlock;
@@ -34,6 +42,7 @@ export const Skeleton: React.FC<SkeletonProps> & {
   loading = true,
   active = true,
   size = 'medium',
+  round = false,
   template,
   count = 1,
   rows = 3,
@@ -88,7 +97,12 @@ export const Skeleton: React.FC<SkeletonProps> & {
   return (
     <SkeletonContext.Provider value={{ active, size, sizeConfig }}>
       <div
-        className={classNames(prefixCls, `${prefixCls}--${size}`, className)}
+        className={classNames(
+          prefixCls,
+          `${prefixCls}--${size}`,
+          round && `${prefixCls}--round`,
+          className,
+        )}
         style={
           {
             // 波纹底色跟随深浅主题 CSS 变量
@@ -107,6 +121,10 @@ export const Skeleton: React.FC<SkeletonProps> & {
 };
 
 Skeleton.Avatar = SkeletonAvatar;
+Skeleton.Button = SkeletonButton;
+Skeleton.Input = SkeletonInput;
+Skeleton.Image = SkeletonImage;
+Skeleton.Node = SkeletonNode;
 Skeleton.Title = SkeletonTitle;
 Skeleton.Paragraph = SkeletonParagraph;
 Skeleton.Block = SkeletonBlock;

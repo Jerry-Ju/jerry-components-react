@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { Size } from '@types';
 import { Skeleton } from 'jerry-components-react';
+import { DemoPlayground, DemoSegment, sizeOptions } from './shared';
 
-export default () => (
-  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-start' }}>
-    <div>
-      <div style={{ marginBottom: 12, fontSize: 12, color: 'var(--text-secondary)' }}>small</div>
-      <Skeleton size="small" avatar paragraph={{ rows: 2 }} />
-    </div>
-    <div>
-      <div style={{ marginBottom: 12, fontSize: 12, color: 'var(--text-secondary)' }}>medium</div>
-      <Skeleton size="medium" avatar paragraph={{ rows: 2 }} />
-    </div>
-    <div>
-      <div style={{ marginBottom: 12, fontSize: 12, color: 'var(--text-secondary)' }}>large</div>
-      <Skeleton size="large" avatar paragraph={{ rows: 2 }} />
-    </div>
-  </div>
-);
+export default () => {
+  const [size, setSize] = useState<Size>('medium');
+
+  return (
+    <DemoPlayground
+      controls={<DemoSegment label="尺寸" value={size} options={sizeOptions} onChange={setSize} />}
+    >
+      <Skeleton size={size} avatar paragraph={{ rows: 2 }} />
+    </DemoPlayground>
+  );
+};

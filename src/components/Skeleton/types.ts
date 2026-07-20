@@ -31,6 +31,35 @@ export interface SkeletonParagraphProps extends BaseComponentProps {
 
 export interface SkeletonBlockProps extends SkeletonElementProps {}
 
+export type SkeletonButtonShape = 'default' | 'square' | 'round' | 'circle';
+
+export interface SkeletonButtonProps extends BaseComponentProps {
+  /** 块级占满容器宽度 */
+  block?: boolean;
+  shape?: SkeletonButtonShape;
+  width?: number | string;
+  height?: number;
+}
+
+export interface SkeletonInputProps extends BaseComponentProps {
+  /** 块级占满容器宽度 */
+  block?: boolean;
+  width?: number | string;
+  height?: number;
+}
+
+export interface SkeletonImageProps extends BaseComponentProps {
+  width?: number | string;
+  height?: number | string;
+  /** 是否显示中心 SVG 图标 */
+  icon?: boolean;
+}
+
+export interface SkeletonNodeProps extends SkeletonElementProps {
+  /** 是否显示中心图标占位 */
+  icon?: boolean;
+}
+
 export interface SkeletonProps extends BaseComponentProps {
   /** 是否展示骨架；false 且有 children 时渲染真实内容 */
   loading?: boolean;
@@ -38,6 +67,8 @@ export interface SkeletonProps extends BaseComponentProps {
   active?: boolean;
   /** 尺寸等级 */
   size?: Size;
+  /** 全局圆角占位 */
+  round?: boolean;
   /** 快速模板 */
   template?: SkeletonTemplate;
   /** 列表模板重复条数 */

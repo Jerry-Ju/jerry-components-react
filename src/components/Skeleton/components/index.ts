@@ -1,5 +1,9 @@
 export { SkeletonAvatar } from './Avatar';
 export { SkeletonBlock } from './Block';
+export { SkeletonButton } from './Button';
 export { SkeletonElement } from './Element';
+export { SkeletonImage } from './Image';
+export { SkeletonInput } from './Input';
+export { SkeletonNode } from './Node';
 export { SkeletonParagraph } from './Paragraph';
 export { SkeletonTitle } from './Title';

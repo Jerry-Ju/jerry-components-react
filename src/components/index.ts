@@ -11,6 +11,11 @@ export { Skeleton } from './Skeleton';
 export type {
   SkeletonAvatarProps,
   SkeletonBlockProps,
+  SkeletonButtonProps,
+  SkeletonButtonShape,
+  SkeletonImageProps,
+  SkeletonInputProps,
+  SkeletonNodeProps,
   SkeletonParagraphProps,
   SkeletonProps,
   SkeletonShape,

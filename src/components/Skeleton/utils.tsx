@@ -118,6 +118,10 @@ export function renderTemplate(
 /** 子组件 displayName 集合，用于识别自由组合模式 */
 const SKELETON_PART_NAMES = new Set([
   'SkeletonAvatar',
+  'SkeletonButton',
+  'SkeletonInput',
+  'SkeletonImage',
+  'SkeletonNode',
   'SkeletonTitle',
   'SkeletonParagraph',
   'SkeletonBlock',

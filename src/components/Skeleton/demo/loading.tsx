@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Skeleton } from 'jerry-components-react';
+import { DemoPlayground, DemoSwitch } from './shared';
 
 const cardStyle: React.CSSProperties = {
   padding: 16,
@@ -12,10 +13,9 @@ export default () => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <button type="button" onClick={() => setLoading((value) => !value)}>
-        {loading ? '显示内容' : '显示骨架'}
-      </button>
+    <DemoPlayground
+      controls={<DemoSwitch label="加载中" checked={loading} onChange={setLoading} />}
+    >
       <Skeleton loading={loading} avatar paragraph={{ rows: 3 }}>
         <div style={cardStyle}>
           <h4 style={{ margin: '0 0 8px' }}>文章标题</h4>
@@ -24,6 +24,6 @@ export default () => {
           </p>
         </div>
       </Skeleton>
-    </div>
+    </DemoPlayground>
   );
 };

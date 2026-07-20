@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Skeleton } from 'jerry-components-react';
+import { DemoPlayground, DemoSwitch } from './shared';
 
-export default () => (
-  <div style={{ display: 'flex', gap: 40 }}>
-    <div>
-      <div style={{ marginBottom: 12, fontSize: 12, color: 'var(--text-secondary)' }}>active</div>
-      <Skeleton avatar paragraph={{ rows: 3 }} />
-    </div>
-    <div>
-      <div style={{ marginBottom: 12, fontSize: 12, color: 'var(--text-secondary)' }}>inactive</div>
-      <Skeleton active={false} avatar paragraph={{ rows: 3 }} />
-    </div>
-  </div>
-);
+export default () => {
+  const [active, setActive] = useState(true);
+
+  return (
+    <DemoPlayground
+      controls={<DemoSwitch label="动画" checked={active} onChange={setActive} />}
+    >
+      <Skeleton active={active} avatar paragraph={{ rows: 3 }} />
+    </DemoPlayground>
+  );
+};
