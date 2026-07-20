@@ -10,6 +10,9 @@ export type { LoadingProps, LoadingType } from './Loading/types';
 export { IconFont } from './IconFont';
 export type { IconFontFlip, IconFontProps, IconFontType } from './IconFont/types';
 
+export { CardLightBorder } from './CardLightBorder';
+export type { CardLightBorderProps, CardLightBorderSpeed } from './CardLightBorder/types';
+
 export { Skeleton } from './Skeleton';
 export type {
   SkeletonAvatarProps,
